@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import {} from "react-native"
 import navigationStrings from "../constants/navigationStrings";
-import { HomePage} from "../Screens";
+import { HomePage, Login} from "../Screens";
 function MainStack (Stack){
     return(
         <Fragment>

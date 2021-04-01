@@ -72,7 +72,7 @@ export const logoutUsingNumber=()=>{
   clearUserData();
   dispatch({
     type:types.LOGOUT,
-    payload:null
+    payload:undefined
   })
 }
 

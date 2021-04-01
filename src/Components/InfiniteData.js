@@ -8,7 +8,7 @@ export default function InfiniteData(props) {
         <View style={styles.container}>
                 <Image source={{uri:profiles.profileImg[0].thumbnail}} style={styles.profileImage}></Image>
                 <Text style={styles.text}>{profiles.fullName}</Text>
-                {/* <Text style={styles.text}>No. {profiles.contactDetails.phoneNo}</Text> */}
+                <Text style={styles.text}>{profiles.gender}</Text>
         </View>
     )
 }

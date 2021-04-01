@@ -11,12 +11,13 @@ import {
   ActionSheetIOS,
   TextInput,
 } from 'react-native';
+import { showMessage } from 'react-native-flash-message';
 import InfiniteData from '../../Components/InfiniteData';
 import Loader from '../../Components/Loader';
 import WrapperContainer from '../../Components/WrapperContainer';
 import navigationStrings from '../../constants/navigationStrings';
 import actions from '../../redux/actions';
-import {infinite_Scroll} from '../../redux/actions/action';
+import {infinite_Scroll, search_Data} from '../../redux/actions/action';
 import {logoutUsingNumber} from '../../redux/actions/auth';
 import colors from '../../styles/colors';
 import fontFamily from '../../styles/fontFamily';
@@ -45,6 +46,8 @@ class HomePage extends Component {
       });
     };
   }
+
+  
   getData = (onEndReachCall = false) => {
     const {skip, profiles, isListEnd} = this.state;
 
@@ -118,7 +121,12 @@ class HomePage extends Component {
 
   logout() {
     logoutUsingNumber();
-    this.props.navigation.navigate(navigationStrings.LOGIN);
+    showMessage({
+      type: 'success',
+      icon: 'success',
+      message: "Logged Out Succesfully",
+    });
+    // this.props.navigation.navigate(navigationStrings.LOGIN);
   }
 
   render() {
@@ -144,9 +152,9 @@ class HomePage extends Component {
 
           <TouchableOpacity
             style={styles.button}
-            onPress={() => {
-              this.logout;
-            }}>
+            onPress={
+              this.logout
+            }>
             <Text style={styles.buttonText}>LOGOUT</Text>
           </TouchableOpacity>
           <FlatList

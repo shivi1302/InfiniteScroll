@@ -16,6 +16,7 @@ function Routes (props){
             <Stack.Navigator>
                 { (props.userData) && AuthStack(Stack)}
                 {MainStack(Stack)}
+                
             </Stack.Navigator>
         </NavigationContainer>
     )
