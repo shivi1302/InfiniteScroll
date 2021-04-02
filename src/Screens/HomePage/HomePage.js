@@ -11,7 +11,7 @@ import {
   ActionSheetIOS,
   TextInput,
 } from 'react-native';
-import { showMessage } from 'react-native-flash-message';
+import {showMessage} from 'react-native-flash-message';
 import InfiniteData from '../../Components/InfiniteData';
 import Loader from '../../Components/Loader';
 import WrapperContainer from '../../Components/WrapperContainer';
@@ -32,24 +32,16 @@ class HomePage extends Component {
     isNoMoreData: false,
     refreshing: false,
     isLoading: true,
-    search: '',
+    
   };
 
   componentDidMount = () => {
     this.getData();
   };
 
-  onChangeText(key) {
-    return value => {
-      this.setState({
-        [key]: value,
-      });
-    };
-  }
 
-  
   getData = (onEndReachCall = false) => {
-    const {skip, profiles, isListEnd} = this.state;
+    const {skip, profiles, isListEnd, isSearch} = this.state;
 
     let calcSkip = onEndReachCall ? skip + profiles.length : 0;
 
@@ -84,6 +76,7 @@ class HomePage extends Component {
           isLoading: false,
           isLoadingMore: false,
           refreshing: false,
+          isSearch: false,
         });
       })
       .catch(err => {
@@ -124,13 +117,13 @@ class HomePage extends Component {
     showMessage({
       type: 'success',
       icon: 'success',
-      message: "Logged Out Succesfully",
+      message: 'Logged Out Succesfully',
     });
     // this.props.navigation.navigate(navigationStrings.LOGIN);
   }
 
   render() {
-    let {profiles, refreshing, isLoading} = this.state;
+    let {profiles, refreshing, isLoading, isSearch, searchData} = this.state;
     return (
       <WrapperContainer>
         <View style={{paddingBottom: 280}}>
@@ -144,36 +137,39 @@ class HomePage extends Component {
             }}>
             Details
           </Text>
-          <TextInput
-            placeholder="Search"
-            onChangeText={this.onChangeText('search')}
-            style={styles.textIN}
-          />
+       
 
-          <TouchableOpacity
-            style={styles.button}
-            onPress={
-              this.logout
-            }>
+          <TouchableOpacity style={styles.button} onPress={this.logout}>
             <Text style={styles.buttonText}>LOGOUT</Text>
           </TouchableOpacity>
-          <FlatList
-            refreshControl={
-              <RefreshControl
-                refreshing={refreshing}
-                onRefresh={this._onRefresh}
-              />
-            }
-            data={profiles}
-            renderItem={({item}) => (
-              <InfiniteData profiles={item}></InfiniteData>
-            )}
-            keyExtractor={({key}) => key}
-            numColumns={2}
-            onEndReached={this.onEndReached}
-            ListFooterComponent={this.renderFooter}
-            onEndReachedThreshold={0.8}
-          />
+
+          {!isSearch ? (
+            <FlatList
+              refreshControl={
+                <RefreshControl
+                  refreshing={refreshing}
+                  onRefresh={this._onRefresh}
+                />
+              }
+              data={profiles}
+              renderItem={({item}) => (
+                <InfiniteData profiles={item}></InfiniteData>
+              )}
+              keyExtractor={({key}) => key}
+              numColumns={2}
+              onEndReached={this.onEndReached}
+              ListFooterComponent={this.renderFooter}
+              onEndReachedThreshold={0.8}
+            />
+          ) : (
+            <FlatList
+              data={search_Data}
+              keyExtractor={({key}) => key}
+              renderItem={({item}) => (
+                <InfiniteData profiles={item}></InfiniteData>
+              )}
+            />
+          )}
         </View>
       </WrapperContainer>
     );
@@ -184,7 +180,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.themeColor,
     padding: 10,
     borderRadius: 10,
-    marginHorizontal: 40,
+    marginHorizontal: 50,
     marginVertical: 10,
   },
   buttonText: {
@@ -192,12 +188,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 17,
     color: colors.white,
-  },
-  textIN: {
-    borderWidth: 0.2,
-    marginHorizontal: 50,
-    padding: 10,
-    borderRadius: 10,
   },
 });
 export default HomePage;

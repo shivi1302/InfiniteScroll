@@ -15,14 +15,7 @@ export const infinite_Scroll=(data)=>{
         })
     })
 }
-
-export const search_Data=(data)=>{
-    return new Promise ((resolve,reject)=>{
-        apiGet(SEARCH_API,data).then((res)=>{
-            console.log(res)
-            resolve(res);
-        }).catch((error)=>{
-            reject(error)
-        })
-    })
-}
+ export function search_Data(search){
+        let searchUrl = `${SEARCH_API}` + `?name=${search}`
+       return apiGet(searchUrl)
+      }

@@ -11,12 +11,7 @@ export default function reducer(state=initialState, action) {
                 userData : action.payload
             }
         }
-        case types.LOGOUT:{
-            return{
-                ...state,
-                userData:action.payload
-            }
-        }
+       
         default:
         return{
             ...state
