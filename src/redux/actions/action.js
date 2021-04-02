@@ -15,7 +15,7 @@ export const infinite_Scroll=(data)=>{
         })
     })
 }
- export function search_Data(search){
-        let searchUrl = `${SEARCH_API}` + `?name=${search}`
+ export function search_Data(query){
+        let searchUrl = `${SEARCH_API}` + query
        return apiGet(searchUrl)
       }

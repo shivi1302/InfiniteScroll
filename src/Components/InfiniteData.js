@@ -9,6 +9,7 @@ export default function InfiniteData(props) {
                 <Image source={{uri:profiles.profileImg[0].thumbnail}} style={styles.profileImage}></Image>
                 <Text style={styles.text}>{profiles.fullName}</Text>
                 <Text style={styles.text}>{profiles.gender}</Text>
+                <Text style={styles.text}>{profiles.addressDetails.city}</Text>
         </View>
     )
 }
@@ -20,6 +21,7 @@ const styles = StyleSheet.create({
         resizeMode:"contain",
         borderRadius:10,
         marginVertical:5,
+        alignItems:"center"
     },
   text:{
       textAlign:"center",

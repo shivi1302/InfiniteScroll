@@ -54,7 +54,7 @@ class HomePage extends Component {
     // console.log(header);
     infinite_Scroll(data)
       .then(res => {
-        // console.log('this is the response: ', res);
+        console.log('this is the response: ', res);
         let updatedStateVar = {};
         if (res.data.length > 0) {
           let profilesData = onEndReachCall
@@ -143,7 +143,7 @@ class HomePage extends Component {
             <Text style={styles.buttonText}>LOGOUT</Text>
           </TouchableOpacity>
 
-          {!isSearch ? (
+          
             <FlatList
               refreshControl={
                 <RefreshControl
@@ -161,15 +161,7 @@ class HomePage extends Component {
               ListFooterComponent={this.renderFooter}
               onEndReachedThreshold={0.8}
             />
-          ) : (
-            <FlatList
-              data={search_Data}
-              keyExtractor={({key}) => key}
-              renderItem={({item}) => (
-                <InfiniteData profiles={item}></InfiniteData>
-              )}
-            />
-          )}
+          
         </View>
       </WrapperContainer>
     );
@@ -181,7 +173,8 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 10,
     marginHorizontal: 50,
-    marginVertical: 10,
+    marginTop:10,
+    marginBottom:40
   },
   buttonText: {
     fontFamily: fontFamily.subTitles,
