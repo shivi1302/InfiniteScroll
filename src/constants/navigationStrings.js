@@ -3,5 +3,6 @@ export default{
     LOGIN:"login",
     SIGNUP:"signup",
     OTP_VERIFICATION:"otp_verification",
-    SEARCH:"search"
+    SEARCH:"search",
+    CHARTS:"charts"
 }

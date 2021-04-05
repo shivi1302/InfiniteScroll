@@ -12,8 +12,6 @@ import {search_Data} from '../../redux/actions/action';
 import colors from '../../styles/colors';
 import {ActivityIndicator} from 'react-native-paper';
 import fontFamily from '../../styles/fontFamily';
-import {locationPermission} from '../../utils/permissions';
-import Geolocation from 'react-native-geolocation-service';
 export default class Search extends Component {
   state = {
     search: '',
