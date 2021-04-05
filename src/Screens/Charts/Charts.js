@@ -13,11 +13,11 @@ export default class Charts extends Component {
       10,
       40,
       95,
-      -4,
+      -54,
       -24,
       null,
       85,
-      undefined,
+      150,
       0,
       35,
       53,
@@ -34,8 +34,7 @@ export default class Charts extends Component {
         .map((value, index) => ({
             value,
             svg: {
-                fill: randomColor(),
-                onPress: () => console.log('press', index),
+                fill: randomColor()
             },
             key: `pie-${index}`,
         }))

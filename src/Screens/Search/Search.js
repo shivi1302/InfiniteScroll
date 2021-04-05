@@ -50,6 +50,7 @@ export default class Search extends Component {
     let coordinates = [76.7794179, 30.7333148];
     coordinates = JSON.stringify(coordinates)
     let query = `?coordinates=${coordinates}`;
+    this.setState({isLoading: true});
     this.apicall(query);
 }
 
