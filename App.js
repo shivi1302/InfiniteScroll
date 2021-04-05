@@ -6,6 +6,7 @@ import { Provider } from "react-redux";
 import Routes from "./src/Navigation/Routes";
 import { saveUserData } from "./src/redux/actions/auth";
 import store from "./src/redux/store";
+import { requestUserPermission } from "./src/utils/permissions";
 import { getUserData } from "./src/utils/utils";
 const {dispatch}  = store
 export default class App extends Component{
@@ -19,7 +20,7 @@ export default class App extends Component{
       console.log(error, 'error');
     })
     SplashScreen.hide();
-
+    requestUserPermission();
   }
 
 

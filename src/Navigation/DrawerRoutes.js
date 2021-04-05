@@ -8,7 +8,7 @@ const Drawer = createDrawerNavigator();
 
 function MyDrawer() {
   return (
-    <Drawer.Navigator drawerType="slide"  drawerStyle={{
+    <Drawer.Navigator   drawerStyle={{
         backgroundColor: colors.white,
         width: 240,
       }}>

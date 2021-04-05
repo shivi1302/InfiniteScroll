@@ -1,5 +1,6 @@
 import {PermissionsAndroid, Platform, Alert} from 'react-native';
 import Geolocation from 'react-native-geolocation-service';
+import messaging from '@react-native-firebase/messaging';
 export const androidCameraPermission = () =>
   new Promise(async (resolve, reject) => {
     try {
@@ -71,3 +72,13 @@ export const locationPermission = () => new Promise(async (resolve, reject) => {
 		return reject(error);
 	});
 });
+export const requestUserPermission=async()=> {
+  const authStatus = await messaging().requestPermission();
+  const enabled =
+    authStatus === messaging.AuthorizationStatus.AUTHORIZED ||
+    authStatus === messaging.AuthorizationStatus.PROVISIONAL;
+
+  if (enabled) {
+    console.log('Authorization status:', authStatus);
+  }
+}
