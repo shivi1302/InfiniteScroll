@@ -4,5 +4,6 @@ export default{
     SIGNUP:"signup",
     OTP_VERIFICATION:"otp_verification",
     SEARCH:"search",
-    CHARTS:"charts"
+    CHARTS:"charts",
+    QRCODE:"qrcode"
 }

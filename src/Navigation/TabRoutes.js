@@ -3,7 +3,7 @@ import {Image} from "react-native";
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import navigationStrings from "../constants/navigationStrings";
 import colors from "../styles/colors";
-import { Charts, HomePage, Search } from "../Screens";
+import { Charts, HomePage, QRCode, Search } from "../Screens";
 import imagePath from "../constants/imagePath";
 const Tab = createBottomTabNavigator()
 export default function BottomTabNavigator(){
@@ -39,6 +39,15 @@ export default function BottomTabNavigator(){
                 options={{tabBarLabel:"Charts",
                 tabBarIcon:()=>{
                     return<Image  style={{height:20,width:20}} source={imagePath.charts}/>
+                }
+            }}
+            />
+            <Tab.Screen
+                name={navigationStrings.QRCODE}
+                component={QRCode}
+                options={{tabBarLabel:"QRCode",
+                tabBarIcon:()=>{
+                    return<Image  style={{height:25,width:20}} source={imagePath.qr}/>
                 }
             }}
             />

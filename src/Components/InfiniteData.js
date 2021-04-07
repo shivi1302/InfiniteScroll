@@ -1,12 +1,19 @@
 import React from "react";
-import {View,Image,StyleSheet, Text} from "react-native"
+import {View,Image,StyleSheet, Text, Dimensions} from "react-native"
 import fontFamily from "../styles/fontFamily";
+import ImageZoom from "react-native-image-pan-zoom"
 
 export default function InfiniteData(props) {
     let{profiles} = props
     return(
         <View style={styles.container}>
+
+<ImageZoom cropWidth={Dimensions.get('window').width-600}
+                       cropHeight={Dimensions.get('window').height-500}
+                       imageWidth={120}
+                       imageHeight={120}>
                 <Image source={{uri:profiles.profileImg[0].thumbnail}} style={styles.profileImage}></Image>
+                </ImageZoom>
                 <Text style={styles.text}>{profiles.fullName}</Text>
                 <Text style={styles.text}>{profiles.gender}</Text>
                 <Text style={styles.text}>{profiles.addressDetails.city}</Text>
@@ -20,7 +27,6 @@ const styles = StyleSheet.create({
         width:120,
         resizeMode:"contain",
         borderRadius:10,
-        marginVertical:5,
         alignItems:"center"
     },
   text:{
