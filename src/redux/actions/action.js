@@ -20,6 +20,6 @@ export const infinite_Scroll=(data)=>{
        return apiGet(searchUrl)
       }
 
-export function getUserMessgeOneToOne ( query = '' ) { 
-        return apiGet ( `${CONVERSATION_API}`+ query ); 
+export function getUserMessgeOneToOne ( query ) { 
+        return apiGet ( `${CONVERSATION_API}${query}`); 
     }

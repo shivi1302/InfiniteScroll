@@ -6,4 +6,4 @@ export const PHONE_API = getApiUrl('user/v1/loginSignupOtp');
 export const OTP_VERIFICATION_API = getApiUrl("user/v1/verifyOtp");
 export const INFINITE_SCROLL = getApiUrl("user/v1/getUserSearch");
 export const SEARCH_API = getApiUrl("user/v1/getUserNearMe");
-export const CONVERSATION_API = getApiUrl("/user/v1/getConversationMessages")
+export const CONVERSATION_API = getApiUrl("/user/v1/getAllConversations")
