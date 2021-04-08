@@ -3,7 +3,7 @@ import {Image} from "react-native";
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import navigationStrings from "../constants/navigationStrings";
 import colors from "../styles/colors";
-import { Charts, HomePage, QRCode, Search } from "../Screens";
+import { Charts, Chat, HomePage, QRCode, Search } from "../Screens";
 import imagePath from "../constants/imagePath";
 const Tab = createBottomTabNavigator()
 export default function BottomTabNavigator(){
@@ -47,7 +47,16 @@ export default function BottomTabNavigator(){
                 component={QRCode}
                 options={{tabBarLabel:"QRCode",
                 tabBarIcon:()=>{
-                    return<Image  style={{height:25,width:20}} source={imagePath.qr}/>
+                    return<Image  style={{height:25,width:25}} source={imagePath.qr}/>
+                }
+            }}
+            />
+            <Tab.Screen
+                name={navigationStrings.CHAT}
+                component={Chat}
+                options={{tabBarLabel:"Chat",
+                tabBarIcon:()=>{
+                    return<Image  style={{height:25,width:25}} source={imagePath.chat}/>
                 }
             }}
             />

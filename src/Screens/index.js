@@ -4,4 +4,5 @@ export {default as OTPVerification} from "./OTPVerification/OTPVerification";
 export {default as HomePage} from "./HomePage/HomePage"
 export {default as Search} from "./Search/Search";
 export {default as Charts} from "./Charts/Charts";
-export {default as QRCode} from "./QRCode/QRCode"
+export {default as QRCode} from "./QRCode/QRCode";
+export {default as Chat} from "./Chat/Chat"

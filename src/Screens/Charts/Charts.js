@@ -1,10 +1,17 @@
 import React, {Component} from 'react';
 import {Text, View, StyleSheet, ScrollView} from 'react-native';
-import {BarChart, Grid, AreaChart,LineChart,PieChart} from 'react-native-svg-charts';
+import {
+  BarChart,
+  Grid,
+  AreaChart,
+  LineChart,
+  PieChart,
+} from 'react-native-svg-charts';
 import WrapperContainer from '../../Components/WrapperContainer';
 import colors from '../../styles/colors';
 import fontFamily from '../../styles/fontFamily';
 import * as shape from 'd3-shape';
+import * as Animatable from 'react-native-animatable';
 export default class Charts extends Component {
   render() {
     const fill = 'rgb(134, 65, 244)';
@@ -27,50 +34,77 @@ export default class Charts extends Component {
       -20,
       -80,
     ];
-    const randomColor = () => ('#' + ((Math.random() * 0xffffff) << 0).toString(16) + '000000').slice(0, 7)
- 
+    const randomColor = () =>
+      ('#' + ((Math.random() * 0xffffff) << 0).toString(16) + '000000').slice(
+        0,
+        7,
+      );
+
     const pieData = data
-        .filter((value) => value > 0)
-        .map((value, index) => ({
-            value,
-            svg: {
-                fill: randomColor()
-            },
-            key: `pie-${index}`,
-        }))
+      .filter(value => value > 0)
+      .map((value, index) => ({
+        value,
+        svg: {
+          fill: randomColor(),
+        },
+        key: `pie-${index}`,
+      }));
 
     return (
       <WrapperContainer>
-       <ScrollView >
-       <Text style={styles.title}>BAR GRAPH</Text>
-        <BarChart
-          style={styles.bargraph}
-          data={data}
-          svg={{fill}}
-          contentInset={{top: 30, bottom: 30}}>
-          <Grid />
-        </BarChart>
-        <Text style={styles.title}>AREA CHART</Text>
-        <AreaChart
-          style={styles.bargraph}
-          data={data}
-          contentInset={{top: 30, bottom: 30}}
-          curve={shape.curveNatural}
-          svg={{fill}}>
-          <Grid />
-        </AreaChart>
-        <Text style={styles.title}>LINE CHART</Text>
-        <LineChart
-                style={styles.bargraph}
-                data={data}
-                svg={{ stroke: 'rgb(134, 65, 244)' }}
-                contentInset={{ top: 20, bottom: 20 }}
-            >
-                <Grid />
-            </LineChart>
-            <Text style={styles.title}>PIE CHART</Text>
-            <PieChart style={styles.bargraph} data={pieData} />
-       </ScrollView>
+        <ScrollView>
+          <Animatable.Text
+            animation="zoomInUp"
+            style={styles.title}
+            iterationCount={5}
+            direction="alternate">
+            BAR GRAPH
+          </Animatable.Text>
+          <BarChart
+            style={styles.bargraph}
+            data={data}
+            svg={{fill}}
+            contentInset={{top: 30, bottom: 30}}>
+            <Grid />
+          </BarChart>
+          <Animatable.Text
+            animation="fadeIn"
+            style={styles.title}
+            iterationCount={5}
+            direction="alternate">
+            AREA CHART
+          </Animatable.Text>
+          <AreaChart
+            style={styles.bargraph}
+            data={data}
+            contentInset={{top: 30, bottom: 30}}
+            curve={shape.curveNatural}
+            svg={{fill}}>
+            <Grid />
+          </AreaChart>
+          <Animatable.Text
+            animation="lightSpeedIn"
+            style={styles.title}
+            iterationCount={5}
+            direction="alternate">
+            LINE CHART
+          </Animatable.Text>
+          <LineChart
+            style={styles.bargraph}
+            data={data}
+            svg={{stroke: 'rgb(134, 65, 244)'}}
+            contentInset={{top: 20, bottom: 20}}>
+            <Grid />
+          </LineChart>
+          <Animatable.Text
+            animation="flipInY"
+            style={styles.title}
+            iterationCount={5}
+            direction="alternate">
+            PIE CHART
+          </Animatable.Text>
+          <PieChart style={styles.bargraph} data={pieData} />
+        </ScrollView>
       </WrapperContainer>
     );
   }
@@ -89,5 +123,4 @@ const styles = StyleSheet.create({
     marginTop: 20,
     fontSize: 20,
   },
- 
 });

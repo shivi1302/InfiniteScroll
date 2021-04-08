@@ -21,19 +21,16 @@ import fontFamily from "../../styles/fontFamily";
                   logoBackgroundColor='transparent'
                 />
              </View>
-             <Text style={styles.text}></Text>
-             <View style={styles.qr1}>
+             <Text style={styles.text}>CAMERA</Text>
+             
              
              <QRCodeScanner
         onRead={this.onSuccess}
         flashMode={RNCamera.Constants.FlashMode.auto}
-        bottomContent={
-          <TouchableOpacity>
-            <Text style={styles.text}>OK. Got it!</Text>
-          </TouchableOpacity>
-        }
+        
+        cameraStyle={styles.camera}
       />
-             </View>
+            
             </ScrollView>
          )
      }
@@ -48,9 +45,12 @@ import fontFamily from "../../styles/fontFamily";
         fontFamily:fontFamily.mainfont,
         fontSize:25,
         marginVertical:10,
-        textAlign:"center"
+        textAlign:"center",
+        marginBottom:20
      },
-     qr1:{
-        marginTop:60
-    },
+    camera:{
+       height:300,
+       width:250,
+       marginHorizontal:30
+    }
  })

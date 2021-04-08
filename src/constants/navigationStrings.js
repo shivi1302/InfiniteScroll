@@ -5,5 +5,6 @@ export default{
     OTP_VERIFICATION:"otp_verification",
     SEARCH:"search",
     CHARTS:"charts",
-    QRCODE:"qrcode"
+    QRCODE:"qrcode",
+    CHAT:"chat"
 }

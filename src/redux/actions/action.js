@@ -1,7 +1,7 @@
 import store from '../store';
 import {setUserData, apiPost, apiGet, clearUserData} from '../../utils/utils';
 import types from "../types"
-import { INFINITE_SCROLL, SEARCH_API } from '../../config/urls';
+import { CONVERSATION_API, INFINITE_SCROLL, SEARCH_API } from '../../config/urls';
 
 const {dispatch} = store;
 export const infinite_Scroll=(data)=>{
@@ -19,3 +19,7 @@ export const infinite_Scroll=(data)=>{
         let searchUrl = `${SEARCH_API}` + query
        return apiGet(searchUrl)
       }
+
+export function getUserMessgeOneToOne ( query = '' ) { 
+        return apiGet ( `${CONVERSATION_API}`+ query ); 
+    }
