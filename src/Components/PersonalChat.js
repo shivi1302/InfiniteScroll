@@ -6,7 +6,7 @@ export default function PersonalChat(props) {
     let item = props.route.params.data;
     return(
         <View>
-            <View style={{flexDirection:"row",margin:10}}>
+            <View style={styles.row}>
                 <Image  style={styles.profile}
             source={{uri: item.userInfo.profileImg[0].thumbnail}}>
 
@@ -37,4 +37,5 @@ const styles = StyleSheet.create({
       borderRadius: 100,
       resizeMode: 'contain',
     },
+    row:{flexDirection:"row",margin:10}
 })

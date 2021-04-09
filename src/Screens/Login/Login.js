@@ -8,6 +8,7 @@ import {
 import {showMessage} from 'react-native-flash-message';
 import Loader from '../../Components/Loader';
 import WrapperContainer from '../../Components/WrapperContainer';
+import strings from '../../constants/lang';
 import navigationStrings from '../../constants/navigationStrings';
 import actions from '../../redux/actions';
 import colors from '../../styles/colors';
@@ -78,7 +79,7 @@ class Login extends Component {
           <View>
             <Text
               style={{...commonStyles.heading, marginTop: verticalScale(30)}}>
-              Enter Mobile Number
+              {strings.ENTER_MOBILE_NUMBER}
             </Text>
             <TextInput
               placeholder="Mobile Number"
@@ -87,7 +88,7 @@ class Login extends Component {
             <TouchableOpacity
               style={commonStyles.button}
               onPress={this.loginUsingPhone}>
-              <Text style={commonStyles.buttonText}>Start</Text>
+              <Text style={commonStyles.buttonText}>{strings.START}</Text>
             </TouchableOpacity>
             <Text style={{textAlign: 'center', marginTop: 20}}>
               Don't have an account ?
@@ -97,7 +98,7 @@ class Login extends Component {
                 this.props.navigation.navigate(navigationStrings.SIGNUP);
               }}>
               <Text style={{color: colors.themeColor, textAlign: 'center'}}>
-                SignUp
+                {strings.SIGNUP}
               </Text>
             </TouchableOpacity>
           </View>

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {View, Text, FlatList} from 'react-native';
 import ChatComp from '../../Components/ChatComp';
+import strings from '../../constants/lang';
 import actions from '../../redux/actions';
 import styles from './styles';
 
@@ -35,7 +36,7 @@ export default class Chat extends Component {
     const {data} = this.state;
     return (
       <View>
-        <Text style={styles.txt}>CHATS</Text>
+        <Text style={styles.txt}>{strings.CHATS}</Text>
         <FlatList
           data={data}
           renderItem={({item}) => <ChatComp profiles={item}></ChatComp>}

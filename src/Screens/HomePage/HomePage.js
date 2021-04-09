@@ -10,6 +10,7 @@ import {
 import {showMessage} from 'react-native-flash-message';
 import InfiniteData from '../../Components/InfiniteData';
 import WrapperContainer from '../../Components/WrapperContainer';
+import strings from '../../constants/lang';
 import navigationStrings from '../../constants/navigationStrings';
 import actions from '../../redux/actions';
 import colors from '../../styles/colors';
@@ -119,10 +120,10 @@ class HomePage extends Component {
     return (
       <WrapperContainer>
         <View style={{paddingBottom: 280}}>
-          <Text style={commonStyles.heading}>Details</Text>
+          <Text style={commonStyles.heading}>{strings.DETAILS}</Text>
 
           <TouchableOpacity style={commonStyles.button} onPress={this.logout}>
-            <Text style={commonStyles.buttonText}>LOGOUT</Text>
+            <Text style={commonStyles.buttonText}>{strings.LOGOUT}</Text>
           </TouchableOpacity>
 
           <FlatList

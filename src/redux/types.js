@@ -1,6 +1,6 @@
 export default{
     LOGIN:"LOGIN",
-    OTP_VERIFICATION:"otp_verification",
+    OTP_VERIFICATION:"OTP_VERIFICATION",
     INFINITE_SCROLL:"INFINITE_SCROLL",
     LOGOUT:"LOGOUT"
 }

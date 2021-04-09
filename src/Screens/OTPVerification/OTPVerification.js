@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 import Loader from '../../Components/Loader';
 import WrapperContainer from '../../Components/WrapperContainer';
+import strings from '../../constants/lang';
 import navigationStrings from '../../constants/navigationStrings';
 import actions from '../../redux/actions';
 import commonStyles from '../../styles/commonStyles';
@@ -41,7 +42,7 @@ export default class OtpVerification extends Component {
     return (
       <View style={{flex: 1}}>
         <WrapperContainer>
-          <Text style={commonStyles.heading}> OTP VERIFICATION</Text>
+          <Text style={commonStyles.heading}>{strings.OTP_VERIFICATION}</Text>
           <Text style={styles.input2}>
             ENTER CODE TO VERIFY YOUR EMAIL AND PHONE NUMBER
           </Text>
@@ -56,7 +57,7 @@ export default class OtpVerification extends Component {
             <TouchableOpacity
               onPress={this.LoginUsingOTP}
               style={commonStyles.button}>
-              <Text style={commonStyles.buttonText}>Verify Account</Text>
+              <Text style={commonStyles.buttonText}>{strings.VERIFY_ACCOUNT}</Text>
             </TouchableOpacity>
           </View>
         </WrapperContainer>

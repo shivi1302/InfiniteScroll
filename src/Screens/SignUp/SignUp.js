@@ -9,6 +9,7 @@ import {
 import {showMessage} from 'react-native-flash-message';
 import Loader from '../../Components/Loader';
 import WrapperContainer from '../../Components/WrapperContainer';
+import strings from '../../constants/lang';
 import navigationStrings from '../../constants/navigationStrings';
 import {loginUsingPhone} from '../../redux/actions/auth';
 import colors from '../../styles/colors';
@@ -78,7 +79,7 @@ class SignUp extends Component {
     return (
       <View style={{flex: 1}}>
         <WrapperContainer>
-          <Text style={commonStyles.heading}>SignUp</Text>
+          <Text style={commonStyles.heading}>{strings.SIGNUP}</Text>
           <TextInput
             placeholder="First Name"
             style={styles.placeHolders}
@@ -95,7 +96,7 @@ class SignUp extends Component {
           <TouchableOpacity
             style={commonStyles.button}
             onPress={this.loginUsingPhone}>
-            <Text style={commonStyles.buttonText}>Login Using OTP</Text>
+            <Text style={commonStyles.buttonText}>{strings.LOGIN_USING_OTP}</Text>
           </TouchableOpacity>
         </WrapperContainer>
         <Loader isLoading={isLoading} />

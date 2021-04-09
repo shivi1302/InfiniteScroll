@@ -9,6 +9,7 @@ import QRCodeScanner from 'react-native-qrcode-scanner';
 import {RNCamera} from 'react-native-camera';
 import styles from './styles';
 import commonStyles from '../../styles/commonStyles';
+import strings from '../../constants/lang';
 export default class QRCodes extends Component {
   onSuccess = e => {
     alert('QR CODE SCANNED SUCCESFULY');
@@ -17,7 +18,7 @@ export default class QRCodes extends Component {
     let base64Logo = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAA..';
     return (
       <ScrollView>
-        <Text style={commonStyles.heading}> SCAN ME</Text>
+        <Text style={commonStyles.heading}>{strings.SCAN_ME} </Text>
         <View style={styles.qr}>
           <QRCode
             value="SHIVI"
@@ -25,7 +26,7 @@ export default class QRCodes extends Component {
             logoBackgroundColor="transparent"
           />
         </View>
-        <Text style={commonStyles.heading}>CAMERA</Text>
+        <Text style={commonStyles.heading}>{strings.CAMERA}</Text>
 
         <QRCodeScanner
           onRead={this.onSuccess}

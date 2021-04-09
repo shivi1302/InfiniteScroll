@@ -12,6 +12,7 @@ import {ActivityIndicator} from 'react-native-paper';
 import styles from './styles';
 import commonStyles from '../../styles/commonStyles';
 import {scale} from '../../styles/responsiveSize';
+import strings from '../../constants/lang';
 export default class Search extends Component {
   state = {
     search: '',
@@ -69,7 +70,7 @@ export default class Search extends Component {
             marginHorizontal: 35,
           }}
           onPress={this.findGeoLoaction}>
-          <Text style={commonStyles.buttonText}>NEAR ME</Text>
+          <Text style={commonStyles.buttonText}>{strings.NEAR_ME}</Text>
         </TouchableOpacity>
         <FlatList
           data={searchData}

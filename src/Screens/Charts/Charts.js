@@ -12,9 +12,11 @@ import * as shape from 'd3-shape';
 import * as Animatable from 'react-native-animatable';
 import styles from './styles';
 import commonStyles from '../../styles/commonStyles';
+import colors from '../../styles/colors';
+import strings from '../../constants/lang';
 export default class Charts extends Component {
   render() {
-    const fill = 'rgb(134, 65, 244)';
+    const fill = colors.themeColor;
     const data = [
       50,
       10,
@@ -58,7 +60,7 @@ export default class Charts extends Component {
             style={commonStyles.heading}
             iterationCount={5}
             direction="alternate">
-            BAR GRAPH
+            {strings.BAR_GRAPH}
           </Animatable.Text>
           <BarChart
             style={styles.bargraph}
@@ -72,7 +74,7 @@ export default class Charts extends Component {
             style={commonStyles.heading}
             iterationCount={5}
             direction="alternate">
-            AREA CHART
+            {strings.AREA_CHART}
           </Animatable.Text>
           <AreaChart
             style={styles.bargraph}
@@ -87,7 +89,7 @@ export default class Charts extends Component {
             style={commonStyles.heading}
             iterationCount={5}
             direction="alternate">
-            LINE CHART
+            {strings.LINE_CHART}
           </Animatable.Text>
           <LineChart
             style={styles.bargraph}
@@ -101,7 +103,7 @@ export default class Charts extends Component {
             style={commonStyles.heading}
             iterationCount={5}
             direction="alternate">
-            PIE CHART
+            {strings.PIE_CHART}
           </Animatable.Text>
           <PieChart style={styles.bargraph} data={pieData} />
         </ScrollView>
