@@ -3,7 +3,6 @@ import {
   Text,
   View,
   TextInput,
-  StyleSheet,
   TouchableOpacity,
 } from 'react-native';
 import {showMessage} from 'react-native-flash-message';
@@ -12,8 +11,10 @@ import WrapperContainer from '../../Components/WrapperContainer';
 import navigationStrings from '../../constants/navigationStrings';
 import actions from '../../redux/actions';
 import colors from '../../styles/colors';
-import fontFamily from '../../styles/fontFamily';
+import commonStyles from '../../styles/commonStyles';
+import {verticalScale} from '../../styles/responsiveSize';
 import validations from '../../utils/validations';
+import styles from './styles';
 
 class Login extends Component {
   state = {
@@ -46,13 +47,14 @@ class Login extends Component {
   loginUsingPhone = () => {
     let {isLoading, phone} = this.state;
     if (this.isValidPhone()) {
-      actions.loginUsingPhone({
-        contactDetails: {
-          phoneNo: phone,
-          countryCode: '+91',
-          countryCodeISO: 'IN',
-        },
-      })
+      actions
+        .loginUsingPhone({
+          contactDetails: {
+            phoneNo: phone,
+            countryCode: '+91',
+            countryCodeISO: 'IN',
+          },
+        })
         .then(res => {
           (isLoading = true), console.log(res);
 
@@ -74,15 +76,18 @@ class Login extends Component {
       <View style={{flex: 1}}>
         <WrapperContainer>
           <View>
-            <Text style={styles.mainText}>Enter Mobile Number</Text>
+            <Text
+              style={{...commonStyles.heading, marginTop: verticalScale(30)}}>
+              Enter Mobile Number
+            </Text>
             <TextInput
               placeholder="Mobile Number"
               style={styles.placeHolders}
               onChangeText={this.onChangeText('phone')}></TextInput>
             <TouchableOpacity
-              style={styles.button}
+              style={commonStyles.button}
               onPress={this.loginUsingPhone}>
-              <Text style={styles.buttonText}>Start</Text>
+              <Text style={commonStyles.buttonText}>Start</Text>
             </TouchableOpacity>
             <Text style={{textAlign: 'center', marginTop: 20}}>
               Don't have an account ?
@@ -102,44 +107,4 @@ class Login extends Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 10,
-  },
-  navBar: {
-    flexDirection: 'row',
-    marginBottom: 30,
-  },
-
-  mainText: {
-    fontSize: 20,
-    margin: 20,
-    fontFamily: fontFamily.subTitles,
-    textAlign: 'center',
-  },
-  placeHolders: {
-    backgroundColor: colors.white,
-    padding: 10,
-    paddingLeft: 15,
-    borderRadius: 10,
-    margin: 10,
-    color: colors.black,
-  },
-  button: {
-    backgroundColor: colors.themeColor,
-    padding: 10,
-    borderRadius: 10,
-    marginHorizontal: 40,
-    marginVertical: 10,
-  },
-  buttonText: {
-    fontFamily: fontFamily.subTitles,
-    textAlign: 'center',
-    fontSize: 17,
-    color: colors.white,
-  },
-});
-
 export default Login;

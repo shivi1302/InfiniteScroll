@@ -18,7 +18,6 @@ export default function InfiniteData(props) {
       </ImageZoom>
       <Text style={styles.text}>{profiles.fullName}</Text>
       <Text style={styles.text}>{profiles.gender}</Text>
-      <Text style={styles.text}>{profiles.addressDetails.city}</Text>
     </View>
   );
 }

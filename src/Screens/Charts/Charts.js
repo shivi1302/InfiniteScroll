@@ -8,10 +8,10 @@ import {
   PieChart,
 } from 'react-native-svg-charts';
 import WrapperContainer from '../../Components/WrapperContainer';
-import colors from '../../styles/colors';
-import fontFamily from '../../styles/fontFamily';
 import * as shape from 'd3-shape';
 import * as Animatable from 'react-native-animatable';
+import styles from './styles';
+import commonStyles from '../../styles/commonStyles';
 export default class Charts extends Component {
   render() {
     const fill = 'rgb(134, 65, 244)';
@@ -55,7 +55,7 @@ export default class Charts extends Component {
         <ScrollView>
           <Animatable.Text
             animation="zoomInUp"
-            style={styles.title}
+            style={commonStyles.heading}
             iterationCount={5}
             direction="alternate">
             BAR GRAPH
@@ -69,7 +69,7 @@ export default class Charts extends Component {
           </BarChart>
           <Animatable.Text
             animation="fadeIn"
-            style={styles.title}
+            style={commonStyles.heading}
             iterationCount={5}
             direction="alternate">
             AREA CHART
@@ -84,7 +84,7 @@ export default class Charts extends Component {
           </AreaChart>
           <Animatable.Text
             animation="lightSpeedIn"
-            style={styles.title}
+            style={commonStyles.heading}
             iterationCount={5}
             direction="alternate">
             LINE CHART
@@ -98,7 +98,7 @@ export default class Charts extends Component {
           </LineChart>
           <Animatable.Text
             animation="flipInY"
-            style={styles.title}
+            style={commonStyles.heading}
             iterationCount={5}
             direction="alternate">
             PIE CHART
@@ -109,18 +109,3 @@ export default class Charts extends Component {
     );
   }
 }
-const styles = StyleSheet.create({
-  bargraph: {
-    height: 300,
-    width: 300,
-    marginHorizontal: 30,
-  },
-  title: {
-    textAlign: 'center',
-    color: colors.themeColor,
-    fontFamily: fontFamily.mainfont,
-    marginVertical: 10,
-    marginTop: 20,
-    fontSize: 20,
-  },
-});

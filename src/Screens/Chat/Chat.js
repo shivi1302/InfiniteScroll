@@ -1,10 +1,8 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet,FlatList} from 'react-native';
+import {View, Text, FlatList} from 'react-native';
 import ChatComp from '../../Components/ChatComp';
-import InfiniteData from '../../Components/InfiniteData';
 import actions from '../../redux/actions';
-import colors from '../../styles/colors';
-import fontFamily from '../../styles/fontFamily';
+import styles from './styles';
 
 export default class Chat extends Component {
   state = {
@@ -16,7 +14,8 @@ export default class Chat extends Component {
 
   getData = query => {
     const {isLoading, data} = this.state;
-   actions.getUserMessgeOneToOne(query)
+    actions
+      .getUserMessgeOneToOne(query)
       .then(res => {
         console.log(res);
         this.setState({data: res.data, isLoading: false});
@@ -33,7 +32,7 @@ export default class Chat extends Component {
   };
 
   render() {
-      const {data} = this.state
+    const {data} = this.state;
     return (
       <View>
         <Text style={styles.txt}>CHATS</Text>
@@ -41,19 +40,8 @@ export default class Chat extends Component {
           data={data}
           renderItem={({item}) => <ChatComp profiles={item}></ChatComp>}
           keyExtractor={({key}) => key}
-          
         />
       </View>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  txt: {
-    fontSize: 25,
-    textAlign: 'center',
-    fontFamily:fontFamily.mainfont,
-    marginVertical:15,
-    color:colors.themeColor
-  },
-});

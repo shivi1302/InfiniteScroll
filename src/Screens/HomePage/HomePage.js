@@ -2,25 +2,18 @@ import React, {Component} from 'react';
 import {
   View,
   Text,
-  Image,
   TouchableOpacity,
   RefreshControl,
-  StyleSheet,
   FlatList,
   ActivityIndicator,
-  ActionSheetIOS,
-  TextInput,
 } from 'react-native';
 import {showMessage} from 'react-native-flash-message';
 import InfiniteData from '../../Components/InfiniteData';
-import Loader from '../../Components/Loader';
 import WrapperContainer from '../../Components/WrapperContainer';
 import navigationStrings from '../../constants/navigationStrings';
 import actions from '../../redux/actions';
-import {infinite_Scroll, search_Data} from '../../redux/actions/action';
-// import {logoutUsingNumber} from '../../redux/actions/auth';
 import colors from '../../styles/colors';
-import fontFamily from '../../styles/fontFamily';
+import commonStyles from '../../styles/commonStyles';
 
 const LIMIT = '10';
 class HomePage extends Component {
@@ -32,13 +25,11 @@ class HomePage extends Component {
     isNoMoreData: false,
     refreshing: false,
     isLoading: true,
-    
   };
 
   componentDidMount = () => {
     this.getData();
   };
-
 
   getData = (onEndReachCall = false) => {
     const {skip, profiles, isListEnd, isSearch} = this.state;
@@ -52,7 +43,8 @@ class HomePage extends Component {
     };
     console.log(data);
     // console.log(header);
-    actions.infinite_Scroll(data)
+    actions
+      .infinite_Scroll(data)
       .then(res => {
         console.log('this is the response: ', res);
         let updatedStateVar = {};
@@ -127,60 +119,33 @@ class HomePage extends Component {
     return (
       <WrapperContainer>
         <View style={{paddingBottom: 280}}>
-          <Text
-            style={{
-              fontFamily: fontFamily.mainfont,
-              color: colors.themeColor,
-              fontSize: 25,
-              textAlign: 'center',
-              marginVertical: 10,
-            }}>
-            Details
-          </Text>
-       
+          <Text style={commonStyles.heading}>Details</Text>
 
-          <TouchableOpacity style={styles.button} onPress={this.logout}>
-            <Text style={styles.buttonText}>LOGOUT</Text>
+          <TouchableOpacity style={commonStyles.button} onPress={this.logout}>
+            <Text style={commonStyles.buttonText}>LOGOUT</Text>
           </TouchableOpacity>
 
-          
-            <FlatList
-              refreshControl={
-                <RefreshControl
-                  refreshing={refreshing}
-                  onRefresh={this._onRefresh}
-                />
-              }
-              data={profiles}
-              renderItem={({item}) => (
-                <InfiniteData profiles={item}></InfiniteData>
-              )}
-              keyExtractor={({key}) => key}
-              numColumns={2}
-              onEndReached={this.onEndReached}
-              ListFooterComponent={this.renderFooter}
-              onEndReachedThreshold={0.8}
-            />
-          
+          <FlatList
+            refreshControl={
+              <RefreshControl
+                refreshing={refreshing}
+                onRefresh={this._onRefresh}
+              />
+            }
+            data={profiles}
+            renderItem={({item}) => (
+              <InfiniteData profiles={item}></InfiniteData>
+            )}
+            keyExtractor={({key}) => key}
+            numColumns={2}
+            onEndReached={this.onEndReached}
+            ListFooterComponent={this.renderFooter}
+            onEndReachedThreshold={0.8}
+          />
         </View>
       </WrapperContainer>
     );
   }
 }
-const styles = StyleSheet.create({
-  button: {
-    backgroundColor: colors.themeColor,
-    padding: 10,
-    borderRadius: 10,
-    marginHorizontal: 50,
-    marginTop:10,
-    marginBottom:40
-  },
-  buttonText: {
-    fontFamily: fontFamily.subTitles,
-    textAlign: 'center',
-    fontSize: 17,
-    color: colors.white,
-  },
-});
+
 export default HomePage;
