@@ -22,7 +22,6 @@ export default function InfiniteData(props) {
     </View>
   );
 }
-
 const styles = StyleSheet.create({
   profileImage: {
     height: 120,

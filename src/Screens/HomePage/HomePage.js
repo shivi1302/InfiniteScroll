@@ -18,7 +18,7 @@ import WrapperContainer from '../../Components/WrapperContainer';
 import navigationStrings from '../../constants/navigationStrings';
 import actions from '../../redux/actions';
 import {infinite_Scroll, search_Data} from '../../redux/actions/action';
-import {logoutUsingNumber} from '../../redux/actions/auth';
+// import {logoutUsingNumber} from '../../redux/actions/auth';
 import colors from '../../styles/colors';
 import fontFamily from '../../styles/fontFamily';
 
@@ -52,7 +52,7 @@ class HomePage extends Component {
     };
     console.log(data);
     // console.log(header);
-    infinite_Scroll(data)
+    actions.infinite_Scroll(data)
       .then(res => {
         console.log('this is the response: ', res);
         let updatedStateVar = {};
@@ -113,7 +113,7 @@ class HomePage extends Component {
   };
 
   logout() {
-    logoutUsingNumber();
+    actions.logoutUsingNumber();
     showMessage({
       type: 'success',
       icon: 'success',

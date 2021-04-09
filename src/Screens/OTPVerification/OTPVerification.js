@@ -3,7 +3,8 @@ import {View,Text,StyleSheet, TextInput, TouchableOpacity} from 'react-native'
 import Loader from '../../Components/Loader'
 import WrapperContainer from '../../Components/WrapperContainer'
 import navigationStrings from '../../constants/navigationStrings'
-import { _OtpVerification } from '../../redux/actions/auth'
+import actions from '../../redux/actions'
+// import { _OtpVerification } from '../../redux/actions/auth'
 import colors from '../../styles/colors'
 import fontFamily from '../../styles/fontFamily'
 
@@ -13,7 +14,7 @@ export default class OtpVerification extends Component{
 }
  LoginUsingOTP=()=>{
     let{isLoading} =this.state
-    _OtpVerification({
+    actions._OtpVerification({
       "userId": this.props.route.params.data,
       "otp" : "12345",
       "deviceToken":"123",

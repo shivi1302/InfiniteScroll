@@ -10,7 +10,7 @@ import {showMessage} from 'react-native-flash-message';
 import Loader from '../../Components/Loader';
 import WrapperContainer from '../../Components/WrapperContainer';
 import navigationStrings from '../../constants/navigationStrings';
-import {loginUsingPhone} from '../../redux/actions/auth';
+import actions from '../../redux/actions';
 import colors from '../../styles/colors';
 import fontFamily from '../../styles/fontFamily';
 import validations from '../../utils/validations';
@@ -46,7 +46,7 @@ class Login extends Component {
   loginUsingPhone = () => {
     let {isLoading, phone} = this.state;
     if (this.isValidPhone()) {
-      loginUsingPhone({
+      actions.loginUsingPhone({
         contactDetails: {
           phoneNo: phone,
           countryCode: '+91',

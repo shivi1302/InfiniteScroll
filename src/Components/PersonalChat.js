@@ -31,7 +31,6 @@ const styles = StyleSheet.create({
         color:colors.themeColor
     },
     profile: {
-        ...text,
       height: 60,
       width: 60,
       marginRight:10,

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {View, Text, StyleSheet,FlatList} from 'react-native';
 import ChatComp from '../../Components/ChatComp';
 import InfiniteData from '../../Components/InfiniteData';
-import {getUserMessgeOneToOne} from '../../redux/actions/action';
+import actions from '../../redux/actions';
 import colors from '../../styles/colors';
 import fontFamily from '../../styles/fontFamily';
 
@@ -16,7 +16,7 @@ export default class Chat extends Component {
 
   getData = query => {
     const {isLoading, data} = this.state;
-    getUserMessgeOneToOne(query)
+   actions.getUserMessgeOneToOne(query)
       .then(res => {
         console.log(res);
         this.setState({data: res.data, isLoading: false});
