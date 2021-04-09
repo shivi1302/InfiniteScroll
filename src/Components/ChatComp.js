@@ -7,12 +7,17 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import imagePath from '../constants/imagePath';
+import { useNavigation } from "@react-navigation/native";
+import navigationStrings from '../constants/navigationStrings';
 import colors from '../styles/colors';
 import fontFamily from '../styles/fontFamily';
 export default function ChatComp(props) {
   let {profiles} = props;
+  const navigation = useNavigation();
   return (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={() =>
+      navigation.navigate(navigationStrings.PERSONALCHAT, { data: profiles })
+    }>
       <View style={styles.mainContainer}>
         <View style={{flexDirection: 'row'}}>
           <Image

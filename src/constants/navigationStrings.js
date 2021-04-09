@@ -6,5 +6,6 @@ export default{
     SEARCH:"search",
     CHARTS:"charts",
     QRCODE:"qrcode",
-    CHAT:"chat"
+    CHAT:"chat",
+    PERSONALCHAT:"persosnalchat"
 }
