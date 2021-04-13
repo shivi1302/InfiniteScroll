@@ -8,15 +8,15 @@ import {
 } from 'react-native';
 import imagePath from '../constants/imagePath';
 import { useNavigation } from "@react-navigation/native";
-import navigationStrings from '../constants/navigationStrings';
 import colors from '../styles/colors';
 import fontFamily from '../styles/fontFamily';
+import Loader from './Loader';
 export default function ChatComp(props) {
-  let {profiles} = props;
+  let {profiles,getChatScreen,loading} = props;
   const navigation = useNavigation();
   return (
     <TouchableOpacity onPress={() =>
-      navigation.navigate(navigationStrings.PERSONALCHAT, { data: profiles })
+     getChatScreen(profiles.commonConversationId,profiles.userInfo._id)
     }>
       <View style={styles.mainContainer}>
         <View style={{flexDirection: 'row'}}>
@@ -44,6 +44,7 @@ export default function ChatComp(props) {
         </View>
         {/* <Image style={styles.delete} source={imagePath.delete}/> */}
       </View>
+      <Loader isLoading={loading}/>
     </TouchableOpacity>
   );
 }

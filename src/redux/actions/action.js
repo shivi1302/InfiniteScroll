@@ -1,7 +1,7 @@
 import store from '../store';
 import {setUserData, apiPost, apiGet, clearUserData} from '../../utils/utils';
 import types from "../types"
-import { CONVERSATION_API, INFINITE_SCROLL, SEARCH_API } from '../../config/urls';
+import { CONVERSATION_API, INFINITE_SCROLL, ONE_TO_ONE_CONVERSATION_API, SEARCH_API } from '../../config/urls';
 
 const {dispatch} = store;
 export const infinite_Scroll=(data)=>{
@@ -23,3 +23,7 @@ export const infinite_Scroll=(data)=>{
 export function getUserMessgeOneToOne ( query ) { 
         return apiGet ( `${CONVERSATION_API}${query}`); 
     }
+
+export function getChat(query){
+    return apiGet(`${ONE_TO_ONE_CONVERSATION_API}${query}`)
+}

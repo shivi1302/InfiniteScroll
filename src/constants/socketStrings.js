@@ -1,0 +1,16 @@
+export default {
+    SEND_MESSAGE: 'sendMessage',
+    SEEN_ALL_MESSAGES: 'seeenAllMessage',
+    RECEIVED_MESSAGE: 'receiveMessage',
+    ACKNOWLEDGED_SENT_BY_RECEIVER: 'acknowledged',
+    RECEIVED_ALL_MESSAGES_LIST: 'recieveAllMessage',
+    LAST_CONVERSATION_NEW_MESSAGE: 'lastCovesationCount',
+    FAVOUTITE_NEW_MESSAGE: 'favouriteMessageCount',
+    ALL_CONVERSATION_MESSAGE_LIST: 'allConversation',
+    FAVOURITE_CONVERSATION_LIST: 'favouriteMeaagesALL',
+    NEW_NOTIFICATION: 'msgFromAdmin',
+    NEW_MESSAGE: 'newMessage',
+    RIGHT_SWIPE: 'rightSwipe',
+    LEVEL_UP: 'levelUp',
+    WAVESLEFT: 'wavelefts', 
+}

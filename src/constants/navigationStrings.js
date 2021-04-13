@@ -7,5 +7,5 @@ export default{
     CHARTS:"charts",
     QRCODE:"qrcode",
     CHAT:"chat",
-    PERSONALCHAT:"persosnalchat"
+   ONE_TO_ONE_CHAT:"one_to_one_chat"
 }

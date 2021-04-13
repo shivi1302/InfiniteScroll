@@ -3,7 +3,9 @@ import io from 'socket.io-client';
 // import logger from './logger';
 const SOCKET_URL = 'https://api.talktier.com/CHATNSP';
 
+
 class WSService {
+
   initializeSocket = userToken => {
     try {
       console.log('initializing socket');

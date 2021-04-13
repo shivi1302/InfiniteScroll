@@ -10,11 +10,12 @@ import reducer from "../redux/reducers/reducer";
 const Stack = createStackNavigator();
 Stack.Screen
 function Routes (props){
-   console.log(props.userData)
+    // console.log(props, "@@@@@@")
+    
     return(
         <NavigationContainer>
             <Stack.Navigator>
-                { (props.userData) && AuthStack(Stack)}
+                { !(props.userData) && AuthStack(Stack)}
                 {MainStack(Stack)}
                 
             </Stack.Navigator>

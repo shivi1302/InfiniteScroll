@@ -41,8 +41,8 @@ export const login = (data) => {
   return new Promise((resolve, reject) => {
     apiPost(LOGIN_API, data)
       .then((res) => {
-        saveUserData(res.data);
-        setUserData(res.data).then((suc) => {
+        saveUserData(res);
+        setUserData(res).then((suc) => {
           resolve(res);
         });
       })
@@ -80,8 +80,8 @@ export const logoutUsingNumber=()=>{
 export const loginUsingPhone=(data)=>{
   return new Promise((resolve, reject)=>{
     apiPost(PHONE_API, data).then((res)=>{
-    // saveUserData(data)
-    setUserData(data)
+    saveUserData(res.data)
+    setUserData(res.data)
        resolve(res)
     }).catch((error)=>{
       reject(error)
@@ -94,6 +94,7 @@ export const _OtpVerification=(data)=>{
   return new Promise((resolve, reject)=>{
     apiPost(OTP_VERIFICATION_API, data).then((res)=>{
       setUserData(res.data)
+      saveUserData(res.data)
       resolve(res);
     }).catch((error)=>{
       reject(error)

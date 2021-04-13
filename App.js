@@ -7,20 +7,18 @@ import Routes from "./src/Navigation/Routes";
 import { saveUserData } from "./src/redux/actions/auth";
 import store from "./src/redux/store";
 import { requestUserPermission } from "./src/utils/permissions";
-import { getUserData } from "./src/utils/utils";
+import { getUserData, setUserData } from "./src/utils/utils";
 const {dispatch}  = store
 export default class App extends Component{
 
   componentDidMount=()=>{
     
-    getUserData().then((res)=>{
-      console.log(res, 'userData');
-      saveUserData(res.data);
-    }).catch(error=>{
-      console.log(error, 'error');
+    getUserData().then(res=>{
+      console.log(res);
+      saveUserData(res);
+      SplashScreen.hide();
+      // setTimeout(()=>SplashScreen.hide);
     })
-    SplashScreen.hide();
-    requestUserPermission();
   }
 
 
